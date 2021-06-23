@@ -103,14 +103,14 @@ if (a === 'view' || !(b.event_name === 'video:analytics' || b.tealium_event === 
       // Get Media Parameter
       getParameter: function(dl, event) {
         var parameter = {
-          11:[(dl.third_party_groupLabel || "mediaset"), (dl.third_party_subGroupLabel || "mediaset")].join("."),
           16: (dl.video_play_request_page_url || dl.videoPageUrl || dl.pageUrl || dl.page_url || '').replace(/^.*\/\/(.*)/, 'https://$1'),
           20: dl.video_site_section,
           22: dl.video_ad_block,
           26: (dl.video_autoplay || dl.video_autoplay === "true") ? "si" : "no",
           27: [(dl.video_play_reason || ""), (dl.video_player_behavior || "standard")].join("."),
-          51: 'mediaset',
-          52: propertyPrefix,
+          51: (dl.third_party_groupLabel && dl.third_party_groupLabel !== "mediaset") ? "syndication" : "mediaset",
+          52: (dl.third_party_groupLabel || propertyPrefix) ,
+          53: (dl.third_party_subGroupLabel || "mediaset") ,
           54: (dl.app_rdns ? propertyPrefix + '-app' : propertyPrefix + '-web'),
           55: (dl.video_play_request_type && String(dl.video_play_request_type).toLowerCase() !== 'vod') ? dl.video_channel_id : dl.video_id,
           57: dl.backend_session_id,
