@@ -103,6 +103,7 @@ if (a === 'view' || !(b.event_name === 'video:analytics' || b.tealium_event === 
       // Get Media Parameter
       getParameter: function(dl, event) {
         var parameter = {
+          11:[(dl.third_party_groupLabel || "mediaset"), (dl.third_party_subGroupLabel || "mediaset")].join("."),
           16: (dl.video_play_request_page_url || dl.videoPageUrl || dl.pageUrl || dl.page_url || '').replace(/^.*\/\/(.*)/, 'https://$1'),
           20: dl.video_site_section,
           22: dl.video_ad_block,
