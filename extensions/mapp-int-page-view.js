@@ -9,7 +9,7 @@ window.wtSmart.push(function(wtSmart) {
 
     b.content_id = (b.content_id || '/');
     b.content_type = (b.content_type || 'page').toLowerCase();
-    b.publisher = (b.publisher || 'mediaset');
+    b.publisher = (b.publisher || b.default_publisher || 'mediaset');
     b.aggregate = (b.aggregate || 'mediaset play');
     var site = "mplay";
     var page = (b.publisher || '').toLowerCase() + '-' + site + '-' + b.content_type + '-' + b.content_id;
