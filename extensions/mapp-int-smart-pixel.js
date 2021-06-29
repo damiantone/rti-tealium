@@ -27,8 +27,8 @@ window.wtSmart.push(function(wtSmart) {
 
     // set initial tracking config
     wtSmart.init.set({
-        //trackId: b['ut.env'] === 'prod' ? '769396664005295' : '419207351539121',
-        trackId: '769396664005295',
+        trackId: b['ut.env'] === 'prod' ? '769396664005295' : '419207351539121',
+        //trackId: '769396664005295',
         trackDomain: 'mediasetitalia01.wt-eu02.net',
         cookie: '3',
     });
