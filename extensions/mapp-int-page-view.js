@@ -11,10 +11,10 @@ window.wtSmart.push(function(wtSmart) {
     b.content_type = (b.content_type || 'page').toLowerCase();
     b.publisher = (b.publisher || b.default_publisher || 'mediaset');
     b.aggregate = (b.aggregate || b.default_aggregate || 'mediaset play');
-    var site = "mplay";
+    var site = (b.default_site || 'mplay');
     var page = (b.publisher || '').toLowerCase() + '-' + site + '-' + b.content_type + '-' + b.content_id;
 
-    var site = "play";
+    site = (b.default_site || 'play');
     if ((b.content_type === 'brand' || b.content_type === 'video' || b.content_type === 'season' || b.content_type === 'articolo') && b.brand) {
       site = b.brand.toLowerCase();
     }
@@ -103,8 +103,11 @@ window.wtSmart.push(function(wtSmart) {
     wtSmart.page.parameter.add({ 51: b.page_type });
 
     if (b.page_url) {
+        b.host = (b.host || 'mediasetplay.mediaset.it');
+        var replace = "/.*("+b.host+")(.*)/i";
+        var re = new RegExp(replace,"g");
         var pageURL = b.page_url
-            .replace(/.*(mediasetplay.mediaset.it)(.*)/i, "https://www.$1$2")
+            .replace(re, "https://www.$1$2")
             .split("?")[0];
         wtSmart.page.parameter.add({ 52: pageURL });
         wtSmart.utils.url(pageURL);
@@ -130,7 +133,7 @@ window.wtSmart.push(function(wtSmart) {
         });
     } else {
         wtSmart.session.parameter.add({
-            5: (b.app_name && b.app_name.startsWith("web"))? b.app_name : "web//mediasetplay-web/noversion"
+            5: (b.app_name && b.app_name.startsWith("web"))? b.app_name : (b.default_app_name || "web//mediasetplay-web/noversion")
         });
     }
 
