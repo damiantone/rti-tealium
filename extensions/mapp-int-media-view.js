@@ -3,7 +3,7 @@ if (a === 'view' || !(b.event_name === 'video:analytics' || b.tealium_event === 
   }
   
   var logPrefix = '\t Webtrekk ###';
-  var propertyPrefix = "mplay";
+  var propertyPrefix = (b.default_site || 'mplay');
   var aliveInterval = 120;
   
   if (!(b.video_id || b.video_channel_id) || !b.video_event_type || !b.video_play_request_id) {
@@ -61,7 +61,7 @@ if (a === 'view' || !(b.event_name === 'video:analytics' || b.tealium_event === 
           4: (dl.video_play_request_type || "").toLowerCase(),
           5: (dl.video_editorial_type || "").toLowerCase(),
           6: (dl.video_name || "").toLowerCase(),
-          8: 'mediaset',
+          8: (dl.default_publisher || 'mediaset'),
         };
   
         // not vod
@@ -146,11 +146,11 @@ if (a === 'view' || !(b.event_name === 'video:analytics' || b.tealium_event === 
   
         if (dl.app_rdns) {
           utag.ut.merge(parameter, {
-            24: dl.backend_app_name ? dl.backend_app_name : "app//mediasetplay-app/noversion"
+            24: (dl.backend_app_name || dl.default_app_name || 'app//mediasetplay-app/noversion')
           },1);
         } else {
           utag.ut.merge(parameter, {
-            24: dl.app_name ? dl.app_name : "web//mediasetplay-web/noversion"
+            24: (dl.app_name || dl.default_app_name || 'web//mediasetplay-web/noversion')
           },1);
         }
         return parameter;
