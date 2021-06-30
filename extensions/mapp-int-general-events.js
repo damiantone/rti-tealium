@@ -1,3 +1,8 @@
+/**
+ * ricordarsi di aggiornare le rules per evitare di far girare codice inutilmente. Le rule aggiornate da applicare sono queste:
+ * referrer_app_cause is defined
+ * lifecycle_type equals launch or wake or sleep
+*/
 if (a === 'view' || b["ut.event"] !== 'link') { return; }
 
 window.wtSmart.push(function(wtSmart) {
