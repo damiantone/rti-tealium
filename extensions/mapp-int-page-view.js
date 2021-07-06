@@ -103,7 +103,7 @@ window.wtSmart.push(function(wtSmart) {
     wtSmart.page.parameter.add({ 51: b.page_type });
 
     if (b.page_url) {
-        var wtkValue = wtSmart.utils.parameter('wtk', b.page_url, false);
+        var wtkValue = (wtSmart.utils.parameter('wtk', b.page_url, undefined)||wtSmart.utils.parameter('wtk', document.location.href, undefined));
         if (wtkValue) {
             wtkValue= "wtk%3D" + wtkValue;
             wtSmart.campaign.data.set({
