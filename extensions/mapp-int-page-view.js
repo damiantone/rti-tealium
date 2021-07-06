@@ -103,6 +103,14 @@ window.wtSmart.push(function(wtSmart) {
     wtSmart.page.parameter.add({ 51: b.page_type });
 
     if (b.page_url) {
+        var wtkValue = wtSmart.utils.parameter('wtk', b.page_url, false);
+        if (wtkValue) {
+            wtkValue= "wtk%3D" + wtkValue;
+            wtSmart.campaign.data.set({
+                id: wtkValue,
+                parameter: {}
+            });
+        }
         b.host = (b.host || 'mediasetplay.mediaset.it');
         var replace = "/.*("+b.host+")(.*)/i";
         var re = new RegExp(replace,"g");

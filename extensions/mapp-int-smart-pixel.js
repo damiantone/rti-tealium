@@ -49,6 +49,8 @@ window.wtSmart.push(function(wtSmart) {
     wtSmart.page.data.set({
         name: b.default_content_id,
     });
+
+    wtSmart.utils.url(b.defaut_page_url);
 });
 
 if(typeof require !=="undefined") {
