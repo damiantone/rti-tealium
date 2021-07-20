@@ -36,7 +36,7 @@ window.wtSmart.push(function(wtSmart) {
             1: b.slider ? 'refresh_ce-awe': 'no-refresh',
             2: (b.page_title || '').toLowerCase(),
             6: (user_id ? 'loggato': 'no-loggato'),
-            53: b.app_rdns ? (b.default_site || 'mplay-app') : (b.default_site || 'mplay-web'),
+            53: (b.platform && b.platform.endsWith('-web') || b.platform.endsWith('-app')) ? b.platform : b.app_rdns ? (b.default_site+"-app" || 'mplay-app') : (b.default_site+"-web" || 'mplay-web'),
             54: b.slider,
             55: b.hit_id,
             18: b.user_persona,
