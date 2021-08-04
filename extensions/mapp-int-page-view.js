@@ -10,6 +10,7 @@ window.wtSmart.push(function(wtSmart) {
     b.content_id = (b.content_id || '/');
     b.content_type = (b.content_type || 'page').toLowerCase();
     b.publisher = (b.publisher || b.default_publisher || 'mediaset');
+    b.area = (b.area || b.default_area || 'ott');
     b.aggregate = (b.aggregate || b.default_aggregate || 'mediaset play');
     var site = (b.default_site || 'mplay');
     var page = (b.publisher || '').toLowerCase() + '-' + site + '-' + b.content_type + '-' + b.content_id;
@@ -26,7 +27,7 @@ window.wtSmart.push(function(wtSmart) {
         name: page,
         category: {
             1: (b.publisher || '').toLowerCase(),
-            2: 'ott',
+            2: b.area,
             3: (b.aggregate || '').toLowerCase(),
             4: site,
             9: b.content_type,
