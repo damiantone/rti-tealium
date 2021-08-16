@@ -40,7 +40,27 @@ window.wtSmart.push(function(wtSmart) {
         parameter: {1: b.lifecycle_type}
         });
         trackEvent = true;
-    }  else {
+    }  else if(b.tealium_event==="mediaset-tgcom24-homepage-click" || b.tealium_event==="mediaset-sportmediaset-homepage-click") {
+        wtSmart.action.data.set({
+        name: b.tealium_event,
+        parameter: {
+            1: b.click_page_id_from+"."+b.click_page_id_to,
+            56: b.click_zone,
+            540: b.click_scroll_depth
+        }
+            
+        });
+        trackEvent = true;
+    } else if(b.tealium_event==="mediaset-tgcom24-video-floating" || b.tealium_event==="mediaset-sportmediaset-video-floating") {
+        wtSmart.action.data.set({
+        name: b.tealium_event,
+        parameter: {
+            1: b.floating_player_action
+        }
+            
+        });
+        trackEvent = true;
+    } else {
         //other events
     }
     if(trackEvent) {
