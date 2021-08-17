@@ -4,7 +4,7 @@
 // loader.min.js - START
 window.loaderConfig_ = window.loaderConfig_ || {
     domain: 'static3.mediasetplay.mediaset.it',
-    path: '/static/webtrekk/1.2.4/',
+    path: '/static/webtrekk/1.2.6/',
     file: 'smart-pixel.min.js'
 };
 
