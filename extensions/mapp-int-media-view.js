@@ -276,7 +276,7 @@ if (a === 'view' || !(b.event_name === 'video:analytics' || b.tealium_event === 
         log(eventType, 'to', 'alive', 'playhead=', playhead, 'lastPlayhead', ms.lastPlayhead);
         ms.mediasession.position(playhead, parameter);
         if (playhead > 0 && playhead % aliveInterval === 0) {
-          if(b.video_play_request_type && String(dl.video_play_request_type).toLowerCase() !== 'live') {
+          if(b.video_play_request_type && String(b.video_play_request_type).toLowerCase() !== 'live') {
             ms.mediasession.custom("alive", playhead, parameter);
           } else {
             ms.mediasession.custom("live-alive", playhead, parameter);
