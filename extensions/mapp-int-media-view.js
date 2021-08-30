@@ -111,7 +111,7 @@ if (a === 'view' || !(b.event_name === 'video:analytics' || b.tealium_event === 
           51: (dl.third_party_groupLabel && dl.third_party_groupLabel !== "mediaset") ? "syndication" : "mediaset",
           52: (dl.third_party_groupLabel || propertyPrefix) ,
           53: (dl.third_party_subGroupLabel || "mediaset") ,
-          54: (dl.app_rdns ? propertyPrefix + '-app' : dl.default_platform || propertyPrefix + '-web'),
+          54: dl.platform_suffix?propertyPrefix + '-' + dl.platform_suffix:(dl.app_rdns ? propertyPrefix + '-app' : propertyPrefix + '-web'),
           55: (dl.video_play_request_type && String(dl.video_play_request_type).toLowerCase() !== 'vod') ? dl.video_channel_id : dl.video_id,
           57: dl.backend_session_id,
           58: [dl.video_play_request_id, (dl.user_persona || ""), (dl.video_channel_right || ""), (dl.video_referer_id || ""), (dl.video_referer_play_request_id || ""), (dl.bd_device_id || dl.device_id || dl['ut.visitor_id'])].join("."),
