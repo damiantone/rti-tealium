@@ -3,7 +3,7 @@ if (a === 'view' || !(b.event_name === 'video:analytics' || b.tealium_event === 
   }
   
   var logPrefix = '\t Webtrekk ###';
-  var propertyPrefix = (b.default_site || 'mplay');
+  var propertyPrefix = (b.property_prefix || 'mplay');
   var aliveInterval = 120;
   
   if (!(b.video_id || b.video_channel_id) || !b.video_event_type || !b.video_play_request_id) {
