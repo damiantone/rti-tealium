@@ -11,6 +11,12 @@ if (a === 'view' || !(b.event_name === 'video:analytics' || b.tealium_event === 
     return;
   }
   
+  if(utag_data) {
+    if(!b.page_url && utag_data.page_url) b.page_url = utag_data.page_url;
+    if(!b.third_party_groupLabel && utag_data.third_party_groupLabel) b.third_party_groupLabel = utag_data.third_party_groupLabel;
+    if(!b.third_party_subGroupLabel && utag_data.third_party_subGroupLabel) b.third_party_subGroupLabel = utag_data.third_party_subGroupLabel;
+  }
+
   window._mediasessions = window._mediasessions || {
     r: {},
     h: {
