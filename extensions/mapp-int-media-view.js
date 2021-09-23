@@ -117,6 +117,7 @@ if (a === 'view' || !(b.event_name === 'video:analytics' || b.tealium_event === 
           58: [dl.video_play_request_id, (dl.user_persona || ""), (dl.video_channel_right || ""), (dl.video_referer_id || ""), (dl.video_referer_play_request_id || ""), (dl.bd_device_id || dl.device_id || dl['ut.visitor_id'])].join("."),
           59: dl.video_rec_trackid,
           60: [(dl.video_rec_cid || ""), (dl.video_rec_ctitle || "")].join("."),
+          2: [(dl.video_ad_transactionId || ""), (dl.video_ad_advertiserId || ""),(dl.video_ad_campaignId || ""), (dl.video_ad_placementId || ""), (dl.video_ad_slot_type || "")].join("."),
         };
   
         // cookie policy
